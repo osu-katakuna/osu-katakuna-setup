@@ -16,7 +16,10 @@ printf "[STAGE 1] System configuration.\n"
 printf "\t=> Updating repositories...\n"
 apt-get -qq update
 printf "\t=> Installing dependencies...\n"
-apt-get -qq install expect openssl apache2 mysql-server php libapache2-mod-php php-mysql git wget dirmngr apt-transport-https lsb-release ca-certificates gcc g++ make composer -y
+apt-get -qq install expect openssl apache2 mysql-server php libapache2-mod-php php-mysql git wget dirmngr apt-transport-https lsb-release ca-certificates gcc g++ make composer php-dev libmcrypt-dev php-pear -y
+printf "\n" | pecl install mcrypt-1.0.1
+echo "extension=mcrypt.so" >> /etc/php/*/cli/php.ini
+echo "extension=mcrypt.so" >> /etc/php/*/apache2/php.ini
 printf "\t=> Installing nodejs...\n"
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash > /dev/null 2>&1
 apt-get -qq install nodejs -y
