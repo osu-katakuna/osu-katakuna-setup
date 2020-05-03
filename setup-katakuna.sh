@@ -82,8 +82,8 @@ chown www-data:www-data /katakuna/web/* -Rf
 printf "[DONE]\n"
 
 printf "\t=> Downloading latest version of osu!katakuna...\t"
-git clone https://github.com/talnacialex/osu-katakuna-web.git /katakuna/web > /dev/null 2>&1
-git clone https://github.com/talnacialex/osu-katakuna.git /katakuna/server > /dev/null 2>&1
+git clone https://github.com/osu-katakuna/osu-katakuna-web.git /katakuna/web > /dev/null 2>&1
+git clone https://github.com/osu-katakuna/osu-katakuna.git /katakuna/server > /dev/null 2>&1
 mkdir /katakuna/web/database/factories > /dev/null 2>&1
 printf "[OK]\n"
 
@@ -119,7 +119,7 @@ EOF
 cat <<-EOF > /lib/systemd/system/katakuna.service
 [Unit]
 Description=osu!katakuna server
-Documentation=https://github.com/talnacialex/osu-katakuna
+Documentation=https://github.com/osu-katakuna/osu-katakuna
 After=network.target
 
 [Service]
